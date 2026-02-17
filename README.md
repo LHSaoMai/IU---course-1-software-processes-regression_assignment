@@ -8,8 +8,8 @@ regression_assignment/
 │       └── ci.yml               <-- Tool: CI/CD Pipeline (GitHub Actions robot)
 ├── app/
 │   ├── __init__.py
-│   └── store.py                 <-- Your Application Code (Modules A and B)
+│   └── store.py                 <-- The Application Code (Modules A and B)
 └── tests/                       <-- Process: TDD & Test Pyramid
     ├── __init__.py
-    ├── test_unit.py             <-- Base of Pyramid: Tests the "Plug"
-    └── test_integration.py      <-- Middle of Pyramid: Tests the "Handshake"
+    ├── test_unit.py             
+    └── test_integration.py      
