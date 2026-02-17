@@ -5,7 +5,9 @@ from app.store import get_customer_status, calculate_discount
 @pytest.mark.parametrize('years ,expected_status',
         [(0,'standard'),
         (10,'platinum'),
-        (15,'platinum')]
+        (15,'platinum'),
+        (5,'gold'), # UNIT TEST: new feature
+        (8,'gold')] # UNIT TEST: new feature
 )
 def test_all_customer_status(years,expected_status):
     result = get_customer_status(years)
@@ -15,7 +17,8 @@ def test_all_customer_status(years,expected_status):
 #  UNIT TEST: Checking Module B in isolation
 @pytest.mark.parametrize('status,expected_discount',
         [('standard',0),
-        ('platinum',10)]
+        ('platinum',10),
+        ('gold',5)] # UNIT TEST: new feature
                          )
 def test_all_discount(status,expected_discount):
     discount = calculate_discount(status)
