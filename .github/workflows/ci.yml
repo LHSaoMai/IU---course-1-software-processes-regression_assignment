@@ -1,0 +1,28 @@
+name: Regression Test Pipeline
+
+# 1. The Trigger: Run this pipeline every time code is pushed
+on: [push]
+
+jobs:
+  test:
+    # 2. The Server: GitHub will boot up a temporary Linux server
+    runs-on: ubuntu-latest
+
+    steps:
+      # 3. Download our code into the server
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      # 4. Install Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+          
+      # 5. Install PyTest
+      - name: Install PyTest
+        run: pip install pytest
+        
+      # 6. The Gatekeeper: Run the tests!
+      - name: Run Regression Suite
+        run: pytest
