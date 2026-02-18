@@ -2,6 +2,8 @@
 def get_customer_status(years_active):
     if years_active >= 10:
         return 'platinum'
+    if years_active >= 5: # <--- THE NEW FEATURE
+        return 'gold'
     else:  
         return 'standard'
 
@@ -10,6 +12,8 @@ def get_customer_status(years_active):
 def calculate_discount(status):
     if status == 'platinum':
         return 10
+    if status == 'gold': # <--- PREVENTING THE REGRESSION
+        return 5
     if status == 'standard':
         return 0
     
